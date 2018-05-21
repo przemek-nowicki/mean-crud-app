@@ -5,7 +5,6 @@ const logger = require('morgan');
 const api = require('./api/routes/api.route');
 const app = express();
 const bluebird = require('bluebird');
-
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mean-crud-app';
 
 app.use(logger('dev'));
