@@ -1,30 +1,17 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const api = require('./api/routes/api.route');
+const app = express();
+const bluebird = require('bluebird');
 
-var indexRouter = require('./api/routes/index');
-var usersRouter = require('./api/routes/users');
-var api = require('./api/routes/api.route');
-
-var app = express();
-var bluebird = require('bluebird');
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/userapp';
-
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mean-crud-app';
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/api', api);
 
 // catch 404 and forward to error handler

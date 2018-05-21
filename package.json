@@ -1,6 +1,7 @@
 {
-  "name": "userapp",
-  "version": "0.0.0",
+  "name": "mean-crud-app",
+  "author": "Przemek Nowicki",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www"

@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const userController = require('../../controllers/user.controller');
-const { userValidationRules } = require('../../utils/validation');
+const userController = require('../controllers/user.controller');
+const { userValidationRules } = require('../utils/validation');
 
 router.get('/', userController.getUsers);
 router.post('/',  userValidationRules('create'), userController.createUser);

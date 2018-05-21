@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('userapp:server');
+var debug = require('debug')('mean-crud-app:server');
 var http = require('http');
 
 /**
