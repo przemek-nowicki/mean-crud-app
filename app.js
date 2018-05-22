@@ -13,9 +13,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/api', api);
 
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  const error = createError(404);
+  res.status(error.status).json({status: error.status, message: error.message});
 });
 
 // error handler
