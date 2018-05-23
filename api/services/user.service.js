@@ -8,7 +8,7 @@ exports.getUsers = async function(query, page, limit) {
     try {
         return await User.paginate(query, options)
     } catch (e) {
-        console.log(`[error] ${e}`);
+        console.error(`[error] ${e}`);
         throw Error('Error while fetching users')
     }
 };
@@ -17,7 +17,7 @@ exports.getUserByEmail = async function(email) {
     try {
         return await User.findOne({email: email});
     } catch (e) {
-        console.log(`[error] ${e}`);
+        console.error(`[error] ${e}`);
         throw Error('Error while fetching by email address');
     }
 };
@@ -33,7 +33,7 @@ exports.createUser = async function(user){
     try {
         return await newUser.save()
     } catch(e) {
-        console.log(`[error] ${e}`);
+        console.error(`[error] ${e}`);
         throw Error('Error while creating user');
     }
 };
@@ -61,7 +61,7 @@ exports.updateUser = async function(user){
     try {
         return await oldUser.save();
     } catch(e) {
-        console.log(`[error] ${e}`);
+        console.error(`[error] ${e}`);
         throw Error('Error occurred while updating user');
     }
 };
@@ -70,12 +70,12 @@ exports.deleteUser = async function(id) {
     try{
         const deleted = await User.remove({_id: id});
         if(deleted.n === 0){
-            console.log('ssaadasdasd');
+            console.error('User could not be deleted');
             throw Error('User could not be deleted');
         }
         return deleted;
     } catch(e) {
-        console.log(`[error] ${e}`);
+        console.error(`[error] ${e}`);
         throw Error('Error occurred while deleting the User');
     }
 };

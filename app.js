@@ -34,7 +34,7 @@ mongoose.Promise = bluebird;
 
 mongoose.connect(MONGODB_URI)
     .then(() => {  console.log(`Successfully connected to the Mongodb Database  at URL : ${MONGODB_URI}`) })
-    .catch(() => { console.log(`Error Connecting to the Mongodb Database at URL : ${MONGODB_URI}`)});
+    .catch(() => { console.error(`Error Connecting to the Mongodb Database at URL : ${MONGODB_URI}`)});
 
 // CORS configuration
 app.use(function(req, res, next) {
