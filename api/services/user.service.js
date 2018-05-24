@@ -13,6 +13,15 @@ exports.getUsers = async function(query, page, limit) {
   }
 };
 
+exports.getUser = async function(userId) {
+  try {
+    return await User.find({_id: userId});
+  } catch (e) {
+    console.error(`[error] ${e}`);
+    throw Error('Error while fetching user')
+  }
+};
+
 exports.getUserByEmail = async function(email) {
   try {
     return await User.findOne({email: email});

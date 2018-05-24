@@ -1,6 +1,6 @@
 <div>
   <a routerLink="/users/new">Create new</a>
-  <span *ngFor="let user of users">
+  <span *ngFor="let user of users" [routerLink]="['/users/', user._id, 'edit']">
     {{user.firstName}}
     {{user.lastName}}
     {{user.email}}

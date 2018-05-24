@@ -10,9 +10,17 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:3000/api/users').pipe(map((res:any)  => {
-      return res["data"].docs as User[];
+    return this.http.get<User[]>('http://localhost:3000/api/users').pipe(map((response:any)  => {
+      return response['data'].docs as User[];
     }));
+  }
+
+  getUser(userId:string): Observable<User> {
+    return this.http.get<User>(`http://localhost:3000/api/users/${userId}`).pipe(
+      map((response:any) => {
+        return response['data'][0] as User;
+      })
+    );
   }
 
   createUser(user: User): Observable<User> {

@@ -1,7 +1,8 @@
 export interface User {
-  firstName: String,
-  lastName: String,
-  email: String,
-  occupation: String,
-  dateOfBirth: String
+  _id?: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  occupation: string,
+  dateOfBirth: string
 }
