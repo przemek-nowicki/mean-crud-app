@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, ErrorHandler } from '@angular/core';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from "./app-routing.module";
+import { AppErrorHandler } from "./app-error-handler";
+import { HomeComponent } from './home/home.component';
 import { UsersModule } from "./users/users.module";
 
 @NgModule({
@@ -16,7 +16,12 @@ import { UsersModule } from "./users/users.module";
     AppRoutingModule,
     UsersModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: AppErrorHandler
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

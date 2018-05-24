@@ -1,0 +1,11 @@
+<form [formGroup]="userForm" novalidate (ngSubmit)="onFormSubmit(userForm.value)">
+  <input type="text" placeholder="First Name" formControlName="firstName">
+  <div>
+    <span *ngIf="!userForm.get('firstName').valid && userForm.get('firstName').touched">Please enter First Name</span>
+  </div>
+  <input type="text" placeholder="Email Address" formControlName="email">
+  <div>
+    <span *ngIf="!userForm.get('email').valid && userForm.get('email').touched">Please enter Email Address</span>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>

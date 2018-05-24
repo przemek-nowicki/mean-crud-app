@@ -14,4 +14,8 @@ export class UserService {
       return res["data"].docs as User[];
     }));
   }
+
+  createUser(user: User): Observable<User> {
+    return this.http.post<User>('http://localhost:3000/api/users', user);
+  }
 }
