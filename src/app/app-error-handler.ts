@@ -1,12 +1,27 @@
-import { ErrorHandler, Injectable} from '@angular/core';
+import {ErrorHandler, Injectable, Injector} from '@angular/core';
+import {HttpErrorResponse} from "@angular/common/http";
+import {NotificationsService} from "angular2-notifications";
 
 @Injectable()
 export class AppErrorHandler implements ErrorHandler {
 
-  constructor() { }
+  constructor(private injector: Injector) { }
 
-  handleError(error: Error) {
-    // TODO: send errors to logger
-    console.error(error);
+  handleError(error: Error | HttpErrorResponse) {
+    // TODO: send errors to kind of error tracking tool (e.g. rollbar)
+    if (error instanceof HttpErrorResponse) {
+      let details:string = error.message;
+      if(error.error.message) {
+        details = error.error.message;
+      }
+      // backend validation errors
+      if(error.error.errors) {
+        details = error.error.errors.map(err => err.msg).join(' ');
+      }
+      this.injector.get(NotificationsService).error('Something went wrong', details);
+      console.error(error);
+    } else {
+      console.error(error);
+    }
   }
 }

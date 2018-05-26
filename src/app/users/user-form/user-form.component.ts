@@ -28,8 +28,8 @@ export class UserFormComponent implements OnInit {
       'firstName' : [null, Validators.required],
       'lastName' : [null, Validators.required],
       'email': [null, [Validators.email, Validators.required]],
-      'occupation' : null,
-      'dateOfBirth' : null
+      'occupation' : [null, Validators.required],
+      'dateOfBirth' : [null, Validators.required]
     });
   }
 
@@ -54,14 +54,10 @@ export class UserFormComponent implements OnInit {
       user._id = this.userId;
       this.userService.updateUser(user).subscribe(res => {
         this.isMessageVisible = true;
-      }, err => {
-        console.log('err', err);
       });
     } else {
       this.userService.createUser(user).subscribe(res => {
         this.router.navigate(['/users']);
-      }, err => {
-        console.log('err', err);
       });
     }
   }

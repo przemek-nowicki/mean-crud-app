@@ -43,7 +43,11 @@ exports.createUser = async function(user){
     return await newUser.save()
   } catch(e) {
     console.error(`[error] ${e}`);
-    throw Error('Error while creating user');
+    if(e.name === 'ValidationError') {
+      throw Error(e.message);
+    } else {
+      throw Error('Error while creating user');
+    }
   }
 };
 
@@ -71,7 +75,11 @@ exports.updateUser = async function(user){
     return await oldUser.save();
   } catch(e) {
     console.error(`[error] ${e}`);
-    throw Error('Error occurred while updating user');
+    if(e.name === 'ValidationError') {
+      throw Error(e.message);
+    } else {
+      throw Error('Error while updating user');
+    }
   }
 };
 
@@ -79,10 +87,10 @@ exports.deleteUser = async function(id) {
   try{
     const deleted = await User.remove({_id: id});
     if(deleted.n === 0){
-        console.error('User could not be deleted');
-        throw Error('User could not be deleted');
-      }
-      return deleted;
+      console.error('User could not be deleted');
+      throw Error('User could not be deleted');
+    }
+    return deleted;
   } catch(e) {
       console.error(`[error] ${e}`);
       throw Error('Error occurred while deleting the User');

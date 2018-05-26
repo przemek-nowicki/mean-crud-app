@@ -7,6 +7,8 @@ import { AppErrorHandler } from "./app-error-handler";
 import { HomeComponent } from './home/home.component';
 import { UsersModule } from "./users/users.module";
 import { NgbDateNativeAdapter } from "./app-date-adapter";
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { NgbDateNativeAdapter } from "./app-date-adapter";
     BrowserModule,
     NgbModule.forRoot(),
     AppRoutingModule,
-    UsersModule
+    UsersModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [
     {
