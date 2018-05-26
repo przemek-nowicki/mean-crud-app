@@ -9,11 +9,24 @@ import {User} from "../user";
 })
 export class UserListComponent implements OnInit {
   users: User[] = [];
+  errorMessage: string = '';
 
   constructor(private userService:UserService) { }
 
   ngOnInit() {
+    this.fetchUsers();
+  }
+
+  fetchUsers() {
     this.userService.getUsers()
       .subscribe((users) => this.users = users);
+  }
+
+  removeUser(id:string) {
+    this.userService.removeUser(id).subscribe(response => {
+      this.fetchUsers();
+    },errorResponse => {
+      this.errorMessage = errorResponse.error.message;
+    });
   }
 }

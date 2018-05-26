@@ -6,6 +6,7 @@ import { UserService } from "./user.service";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserFormComponent } from './user-form/user-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { UserFormComponent } from './user-form/user-form.component';
     UsersRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   declarations: [UserListComponent, UserFormComponent],
   providers: [UserService]

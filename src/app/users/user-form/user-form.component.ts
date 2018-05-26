@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
@@ -18,7 +18,7 @@ export class UserFormComponent implements OnInit {
   lastName:string='';
   email:string='';
   occupation:string='';
-  dateOfBirth:string='';
+  dateOfBirth:Date;
 
   constructor(private router: Router, private route: ActivatedRoute, private userService:UserService, private formBuilder:FormBuilder) { }
 
@@ -43,7 +43,7 @@ export class UserFormComponent implements OnInit {
           lastName: data.lastName ? data.lastName : '',
           email: data.email ? data.email : '',
           occupation: data.occupation ? data.occupation : '',
-          dateOfBirth: data.dateOfBirth ? data.dateOfBirth : '',
+          dateOfBirth: data.dateOfBirth ? new Date(data.dateOfBirth) : '',
         });
       });
     }
@@ -52,7 +52,6 @@ export class UserFormComponent implements OnInit {
   onFormSubmit(user:User) {
     if (this.isEdit) {
       user._id = this.userId;
-      console.log(user);
       this.userService.updateUser(user).subscribe(res => {
         this.isMessageVisible = true;
       }, err => {

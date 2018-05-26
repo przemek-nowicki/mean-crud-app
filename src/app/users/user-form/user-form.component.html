@@ -1,12 +1,44 @@
-<form [formGroup]="userForm" novalidate (ngSubmit)="onFormSubmit(userForm.value)">
-  <input type="text" placeholder="First Name" formControlName="firstName">
-  <span *ngIf="!userForm.get('firstName').valid && userForm.get('firstName').touched">Please enter First Name</span>
-  <input type="text" placeholder="Last Name" formControlName="lastName">
-  <span *ngIf="!userForm.get('lastName').valid && userForm.get('lastName').touched">Please enter Last Name</span>
-  <input type="text" placeholder="Email Address" formControlName="email">
-  <span *ngIf="!userForm.get('email').valid && userForm.get('email').touched">Please enter Email Address</span>
-  <input type="text" placeholder="Occupation" formControlName="occupation">
-  <span *ngIf="!userForm.get('occupation').valid && userForm.get('occupation').touched">Please enter Occupation</span>
-  <input type="text" placeholder="Date of Birth" formControlName="dateOfBirth">
-  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+<ngb-alert *ngIf="isMessageVisible" novalidate type="success" [dismissible]="false">
+  User data updated successfully
+</ngb-alert>
+<form [formGroup]="userForm" class="needs-validation" novalidate (ngSubmit)="onFormSubmit(userForm.value)">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" placeholder="John" formControlName="firstName" [ngClass]="{'form-control':true,'is-invalid':!userForm.get('firstName').valid && userForm.get('firstName').touched}">
+    <div class="invalid-feedback" *ngIf="!userForm.get('firstName').valid && userForm.get('firstName').touched">Please enter First Name</div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" placeholder="Doe" formControlName="lastName" class="form-control" [ngClass]="{'form-control':true,'is-invalid':!userForm.get('lastName').valid && userForm.get('lastName').touched}">
+    <div class="invalid-feedback" *ngIf="!userForm.get('lastName').valid && userForm.get('lastName').touched">Please enter Last Name</div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="text" id="email" placeholder="john.doe@miwu.pl" formControlName="email" class="form-control" [ngClass]="{'form-control':true,'is-invalid':!userForm.get('email').valid && userForm.get('email').touched}">
+    <div class="invalid-feedback" *ngIf="!userForm.get('email').valid && userForm.get('email').touched">Please enter Email Address</div>
+  </div>
+  <div class="form-group">
+    <label for="occupation">Occupation</label>
+    <select id="occupation" class="form-control" formControlName="occupation"  id="exampleFormControlSelect1">
+      <option value="" selected disabled>Please select</option>
+      <option>entertainer</option>
+      <option>developer</option>
+    </select>
+    <div *ngIf="!userForm.get('occupation').valid && userForm.get('occupation').touched">Please enter Occupation</div>
+  </div>
+  <div class="form-group">
+    <label for="dateOfBirth">Date of Birth</label>
+    <div class="input-group">
+      <input type="text" id="dateOfBirth" placeholder="yyyy-mm-dd" ngbDatepicker #d="ngbDatepicker" formControlName="dateOfBirth" class="form-control">
+      <div class="input-group-append">
+        <button class="btn btn-outline-primary" (click)="d.toggle()" type="button">
+          Pick date
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="form-group text-right">
+    <button type="submit" class="btn btn-outline-primary" routerLink="/users">Back</button>
+    <button type="submit" class="btn btn-primary ml-1" [disabled]="!userForm.valid">Submit</button>
+  </div>
 </form>
