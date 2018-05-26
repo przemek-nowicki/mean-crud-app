@@ -9,7 +9,6 @@ import {User} from "../user";
 })
 export class UserListComponent implements OnInit {
   users: User[] = [];
-  errorMessage: string = '';
 
   constructor(private userService:UserService) { }
 
@@ -25,8 +24,6 @@ export class UserListComponent implements OnInit {
   removeUser(id:string) {
     this.userService.removeUser(id).subscribe(response => {
       this.fetchUsers();
-    },errorResponse => {
-      this.errorMessage = errorResponse.error.message;
     });
   }
 }

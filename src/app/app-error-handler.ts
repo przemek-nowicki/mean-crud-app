@@ -14,10 +14,6 @@ export class AppErrorHandler implements ErrorHandler {
       if(error.error.message) {
         details = error.error.message;
       }
-      // backend validation errors
-      if(error.error.errors) {
-        details = error.error.errors.map(err => err.msg).join(' ');
-      }
       this.injector.get(NotificationsService).error('Something went wrong', details);
       console.error(error);
     } else {
