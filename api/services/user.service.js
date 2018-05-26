@@ -79,7 +79,7 @@ exports.deleteUser = async function(id) {
   try{
     const deleted = await User.remove({_id: id});
     if(deleted.n === 0){
-          console.error('User could not be deleted');
+        console.error('User could not be deleted');
         throw Error('User could not be deleted');
       }
       return deleted;

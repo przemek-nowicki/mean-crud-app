@@ -65,11 +65,11 @@ exports.updateUser = async function(req, res, next) {
 };
 
 exports.removeUser = async function(req, res, next) {
-    const id = req.params.id;
-    try{
-      await userService.deleteUser(id);
-      return res.status(204).json({status:204});
-    } catch(e) {
-      return res.status(400).json({status: 400, message: e.message});
-    }
+  const id = req.params.id;
+  try{
+    await userService.deleteUser(id);
+    return res.status(204).json({status:204});
+  } catch(e) {
+    return res.status(400).json({status: 400, message: e.message});
+  }
 };

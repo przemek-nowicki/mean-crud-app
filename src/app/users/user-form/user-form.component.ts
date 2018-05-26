@@ -11,6 +11,9 @@ import { User } from "../user";
 })
 export class UserFormComponent implements OnInit {
   userForm: FormGroup;
+  isEdit:boolean = false;
+  isMessageVisible:boolean = false;
+  userId:string = '';
   firstName:string='';
   lastName:string='';
   email:string='';
@@ -24,14 +27,16 @@ export class UserFormComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       'firstName' : [null, Validators.required],
       'lastName' : [null, Validators.required],
-      'email': [null, Validators.email],
-      'occupation' : [null, null],
-      'dateOfBirth' : [null, null]
+      'email': [null, [Validators.email, Validators.required]],
+      'occupation' : null,
+      'dateOfBirth' : null
     });
   }
 
   getUser(id:string) {
     if(id) {
+      this.userId = id;
+      this.isEdit = true;
       this.userService.getUser(id).subscribe(data => {
         this.userForm.setValue({
           firstName: data.firstName ? data.firstName : '',
@@ -44,11 +49,21 @@ export class UserFormComponent implements OnInit {
     }
   }
 
-  onFormSubmit(form:User) {
-    this.userService.createUser(form).subscribe(res=> {
+  onFormSubmit(user:User) {
+    if (this.isEdit) {
+      user._id = this.userId;
+      console.log(user);
+      this.userService.updateUser(user).subscribe(res => {
+        this.isMessageVisible = true;
+      }, err => {
+        console.log('err', err);
+      });
+    } else {
+      this.userService.createUser(user).subscribe(res => {
         this.router.navigate(['/users']);
-    }, err => {
-      console.log('err', err);
-    });
+      }, err => {
+        console.log('err', err);
+      });
+    }
   }
 }

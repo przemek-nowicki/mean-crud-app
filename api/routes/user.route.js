@@ -10,5 +10,4 @@ router.post('/',  userValidationRules('create'), userController.createUser);
 router.put('/:id', userValidationRules('update'), userController.updateUser);
 router.delete('/:id', userController.removeUser);
 
-
 module.exports = router;
