@@ -1,24 +1,40 @@
 <div class="row">
-  <button type="button" class="btn btn-outline-primary" routerLink="/users/new">Create new</button>
+  <div class="col">
+    <input
+      type='text'
+      class="form-control"
+      placeholder='Type to filter the users list...'
+      (keyup)='updateFilter($event)'/>
+  </div>
+  <div class="col text-right">
+    <button type="button" class="btn btn-outline-primary" routerLink="/users/new">Create new</button>
+  </div>
 </div>
-<table class="table table-hover table-bordered text-center">
-  <thead>
-    <tr>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let user of users">
-    <td>{{user.firstName}}</td>
-    <td>{{user.lastName}}</td>
-    <td>{{user.email}}</td>
-    <td>
-      <button type="button" class="btn btn-outline-secondary" [routerLink]="['/users/', user._id, 'edit']">Edit</button>
-      <button type="button" class="btn btn-outline-danger ml-1" (click)="removeUser(user._id)">Remove</button>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<br />
+<ngx-datatable
+  class="material"
+  #table
+  [rows]="rows"
+  [columns]="columns"
+  [columnMode]="'force'"
+  [rowHeight]="'auto'"
+  [limit]="5"
+  [footerHeight]="100"
+  [headerHeight]="50"
+  [loadingIndicator]="loadingIndicator">
+  <ngx-datatable-column name="First Name"></ngx-datatable-column>
+  <ngx-datatable-column name="Last Name"></ngx-datatable-column>
+  <ngx-datatable-column name="Email"></ngx-datatable-column>
+  <ngx-datatable-column name="Occupation"></ngx-datatable-column>
+  <ngx-datatable-column name="Date of birth">
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+      {{value | date: 'dd-MM-yyyy'}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Actions" sortable="false" prop="_id">
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+      <button type="button" class="btn btn-outline-secondary" [routerLink]="['/users/', value, 'edit']">Edit</button>
+      <button type="button" class="btn btn-outline-danger ml-1" (click)="removeUser(value)">Remove</button>
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>

@@ -1,12 +1,8 @@
 const User = require('../models/user.model');
 
-exports.getUsers = async function(query, page, limit) {
-  const options = {
-    page,
-    limit
-  };
+exports.getUsers = async function() {
   try {
-    return await User.paginate(query, options)
+    return await User.find({});
   } catch (e) {
     console.error(`[error] ${e}`);
     throw Error('Error while fetching users')

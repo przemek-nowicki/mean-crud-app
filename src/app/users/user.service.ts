@@ -11,7 +11,7 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:3000/api/users').pipe(map((response:any)  => {
-      return response['data'].docs as User[];
+      return response['data'] as User[];
     }));
   }
 

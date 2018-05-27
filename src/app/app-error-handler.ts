@@ -14,7 +14,7 @@ export class AppErrorHandler implements ErrorHandler {
       if(error.error.message) {
         details = error.error.message;
       }
-      this.injector.get(NotificationsService).error('Something went wrong', details);
+      this.injector.get(NotificationsService).error('Something went wrong', details, {timeOut: 3000});
       console.error(error);
     } else {
       console.error(error);
