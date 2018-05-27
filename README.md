@@ -5,13 +5,14 @@ This is a simple CRUD app based on MEAN stack.
 ## Installation
 
 To run project install and setup the following:
-- MongoDB;
-- npm version > 7.6.0 (async/await support is necessary). Developed on v9.8.0;
-- set MONGODB_URI system variable to desired database uri, if not defined `127.0.0.1:27017/mean-crud-app` uri will be used;
+* Install MongoDB;
+* Set MONGODB_URI system variable to desired database uri, if not defined `127.0.0.1:27017/mean-crud-app` uri will be used;
+* Install angular cli `npm install -g @angular/cli`  
+* note: npm version > 7.6.0 (async/await support is necessary). Developed on v9.8.0;
 
 ## Development server - frontend
 
-Run `ng serve` for a dev frontend server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` or `npm  serve` for a dev frontend server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Development server - backend 
 
@@ -37,3 +38,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## App screenshots
+
+Users list
+![picture alt](http://crud.miwu.pl/crud-list.png "Users list")
+User form:
+![picture alt](http://crud.miwu.pl/crud-form.png "User form")

@@ -3,20 +3,21 @@ import { Observable } from "rxjs/index";
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from "rxjs/internal/operators";
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class UserService {
-
+  apiUrl:string = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:3000/api/users').pipe(map((response:any)  => {
+    return this.http.get<User[]>(`${this.apiUrl}/users`).pipe(map((response:any)  => {
       return response['data'] as User[];
     }));
   }
 
   getUser(userId:string): Observable<User> {
-    return this.http.get<User>(`http://localhost:3000/api/users/${userId}`).pipe(
+    return this.http.get<User>(`${this.apiUrl}/users/${userId}`).pipe(
       map((response:any) => {
         return response['data'][0] as User;
       })
@@ -24,14 +25,14 @@ export class UserService {
   }
 
   createUser(user: User): Observable<User> {
-    return this.http.post<User>('http://localhost:3000/api/users', user);
+    return this.http.post<User>(`${this.apiUrl}/users`, user);
   }
 
   updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`http://localhost:3000/api/users/${user._id}`, user);
+    return this.http.put<User>(`${this.apiUrl}/users/${user._id}`, user);
   }
 
   removeUser(userId:string): Observable<{}> {
-    return this.http.delete(`http://localhost:3000/api/users/${userId}`);
+    return this.http.delete(`${this.apiUrl}/users/${userId}`);
   }
 }
