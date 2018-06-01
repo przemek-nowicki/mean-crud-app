@@ -6,9 +6,10 @@ This is a simple CRUD app based on MEAN stack.
 
 To run project install and setup the following:
 * Install MongoDB;
-* Set MONGODB_URI system variable to desired database uri, if not defined `127.0.0.1:27017/mean-crud-app` uri will be used;
+* Set MONGODB_URI system variable to desired database uri, if not defined default `127.0.0.1:27017/mean-crud-app` uri will be used;
 * Install angular cli `npm install -g @angular/cli`  
 * note: npm version > 7.6.0 (async/await support is necessary). Developed on v9.8.0;
+* Install app dependencies `npm install`
 
 ## Development server - frontend
 
