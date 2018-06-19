@@ -1,6 +1,6 @@
 # mean-crud-app
 
-This is a simple CRUD app based on MEAN stack. 
+This is a simple CRUD app for user management based on MEAN stack. 
 
 ## Installation
 
@@ -8,9 +8,9 @@ To run project install and setup the following:
 * Install MongoDB;
 * Set MONGODB_URI system variable to desired database uri, if not defined default `127.0.0.1:27017/mean-crud-app` uri will be used;
 * Install angular cli `npm install -g @angular/cli`  
-* note: npm version > 7.6.0 (async/await support is necessary). Developed on v9.8.0;
 * Install app dependencies `npm install`
-# Run mongodb e.g. to run a mongodb process as a daemon execute this command `mongod --dbpath mongo/data` 
+* Run mongodb e.g. to run a mongodb process as a daemon execute this command `mongod --dbpath mongo/data`
+* Note: npm version > 7.6.0 (async/await support is necessary). Developed on v9.8.0; 
 
 ## Development server - frontend
 
