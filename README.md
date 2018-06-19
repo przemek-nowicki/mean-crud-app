@@ -10,10 +10,11 @@ To run project install and setup the following:
 * Install angular cli `npm install -g @angular/cli`  
 * note: npm version > 7.6.0 (async/await support is necessary). Developed on v9.8.0;
 * Install app dependencies `npm install`
+# Run mongodb e.g. to run a mongodb process as a daemon execute this command `mongod --dbpath mongo/data` 
 
 ## Development server - frontend
 
-Run `npm start` or `npm  serve` for a dev frontend server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev frontend server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Development server - backend 
 
