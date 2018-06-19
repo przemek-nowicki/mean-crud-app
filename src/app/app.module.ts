@@ -9,11 +9,13 @@ import { UsersModule } from "./users/users.module";
 import { NgbDateNativeAdapter } from "./app-date-adapter";
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

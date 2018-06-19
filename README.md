@@ -1,6 +1,6 @@
-# mean-crud-app
+# MEAN crud app with Angular 6
 
-This is a simple CRUD app for user management based on MEAN stack. 
+This is a simple CRUD app for user management based on MEAN stack with Angular6 on the board. 
 
 ## Installation
 
@@ -14,11 +14,13 @@ To run project install and setup the following:
 
 ## Development server - frontend
 
-Run `npm start` for a dev frontend server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev frontend server. Navigate to `http://localhost:4200/`. 
+The app will automatically reload if you change any of the source files.
 
 ## Development server - backend 
 
-Run `npm run server` for a dev backend server. The server will automatically reload if you change any of the files from api directory.  
+Run `npm run server` for a dev backend server. 
+The server will automatically reload if you change any of the files from api directory.  
 In order to check if api response type `curl -i localhost:3000/api/users` command in terminal/
 
 ## Code scaffolding
