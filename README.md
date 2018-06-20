@@ -23,10 +23,6 @@ Run `npm run server` for a dev backend server.
 The server will automatically reload if you change any of the files from api directory.  
 In order to check if api response type `curl -i localhost:3000/api/users` command in terminal/
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
@@ -35,13 +31,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
 ## App screenshots
 
 Users list:
+* features: sort, filter, paginate 
 ![picture alt](http://crud.miwu.pl/crud-list.png "Users list")
 User form:
+* features: add, edit, upload image, select date via datapicker, validation (client & server side)
 ![picture alt](http://crud.miwu.pl/crud-form.png "User form")
