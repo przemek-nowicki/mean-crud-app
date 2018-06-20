@@ -16,7 +16,8 @@ const UserSchema = new mongoose.Schema({
           validate: [validateEmail, 'invalid email address'],
           match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'invalid email address']},
   occupation: {type: String, trim: true, required: [true, 'occupation is required']},
-  dateOfBirth: {type: Date, required: [true, 'date of birth is required']}
+  dateOfBirth: {type: Date, required: [true, 'date of birth is required']},
+  photo: {type: String}
 });
 
 UserSchema.plugin(uniqueValidator, { message: '{PATH} already exists!' });

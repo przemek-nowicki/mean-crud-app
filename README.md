@@ -33,9 +33,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## App screenshots
 
-Users list:
+### Users list:
 * features: sort, filter, paginate 
 ![picture alt](http://crud.miwu.pl/crud-list.png "Users list")
-User form:
+
+### User form:
 * features: add, edit, upload image, select date via datapicker, validation (client & server side)
 ![picture alt](http://crud.miwu.pl/crud-form.png "User form")

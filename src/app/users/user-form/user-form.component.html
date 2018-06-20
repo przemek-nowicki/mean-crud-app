@@ -38,8 +38,25 @@
       <div class="invalid-feedback" *ngIf="!userForm.get('dateOfBirth').valid && userForm.get('dateOfBirth').touched">Please pick date of birth</div>
     </div>
   </div>
+  <div class="form-group">
+    <div *ngIf="userForm.get('photo').value" class="p-2">
+      <img src="{{userForm.get('photo').value}}" class="w-25"/>
+    </div>
+    <input type="hidden" formControlName="photo"/>
+    <label for="photo">Photo</label>
+    <div class="input-group">
+      <input type="file" id="photo" ng2FileSelect [uploader]="uploader" class="form-control" accept="image/*">
+      <div class="input-group-append">
+        <button type="button" class="btn btn-success btn-s"
+                (click)="uploader.uploadAll()"
+                [disabled]="!uploader.getNotUploadedItems().length" >
+          Upload a Picture
+        </button>
+      </div>
+    </div>
+  </div>
   <div class="form-group text-right">
     <button type="submit" class="btn btn-outline-primary" routerLink="/users">Back</button>
-    <button type="submit" class="btn btn-primary ml-1" [disabled]="!userForm.valid">Submit</button>
+    <button type="submit" class="btn btn-primary ml-1" [disabled]="userForm.invalid || userForm.prestine">Submit</button>
   </div>
 </form>

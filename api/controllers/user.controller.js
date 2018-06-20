@@ -25,7 +25,8 @@ exports.createUser = async function(req, res, next) {
     lastName: req.body.lastName,
     email: req.body.email,
     occupation: req.body.occupation,
-    dateOfBirth: req.body.dateOfBirth
+    dateOfBirth: req.body.dateOfBirth,
+    photo: req.body.photo
   };
   try {
     const createdUser = await userService.createUser(userToCreate);
@@ -43,7 +44,8 @@ exports.updateUser = async function(req, res, next) {
     lastName: req.body.lastName,
     email: req.body.email,
     occupation: req.body.occupation,
-    dateOfBirth: req.body.dateOfBirth
+    dateOfBirth: req.body.dateOfBirth,
+    photo: req.body.photo
   };
   try {
     const updatedUser = await userService.updateUser(userToUpdate);
@@ -64,5 +66,19 @@ exports.removeUser = async function(req, res, next) {
     return res.status(204).json({status:204});
   } catch(e) {
     return res.status(400).json({status: 400, message: e.message});
+  }
+};
+
+exports.upload = async function(req, res, next) {
+  if (!req.file) {
+    return res.send({
+      success: false
+    });
+  } else {
+    console.log(req.file);
+    debugger;
+    return res.status(201).json({
+      status: 201, filePath: req.file.path
+    });
   }
 };

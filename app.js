@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 app.use('/api', api);
+app.use('/uploads',express.static('uploads'));
 
 app.use(function(req, res, next) {
   const error = createError(404);

@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserFormComponent } from './user-form/user-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     NgbModule,
     NgxDatatableModule
   ],
-  declarations: [UserListComponent, UserFormComponent],
+  declarations: [UserListComponent, UserFormComponent, FileSelectDirective],
   providers: [UserService]
 })
 export class UsersModule {}

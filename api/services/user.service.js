@@ -33,7 +33,8 @@ exports.createUser = async function(user){
     lastName: user.lastName,
     email: user.email,
     occupation: user.occupation,
-    dateOfBirth: user.dateOfBirth
+    dateOfBirth: user.dateOfBirth,
+    photo: user.photo
   });
   try {
     return await newUser.save()
@@ -66,6 +67,7 @@ exports.updateUser = async function(user){
   oldUser.email = user.email;
   oldUser.occupation = user.occupation;
   oldUser.dateOfBirth = user.dateOfBirth;
+  oldUser.photo = user.photo;
 
   try {
     return await oldUser.save();

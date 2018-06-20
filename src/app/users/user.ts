@@ -4,5 +4,6 @@ export interface User {
   lastName: string,
   email: string,
   occupation: string,
-  dateOfBirth: string
+  dateOfBirth: string,
+  photo?: string
 }
