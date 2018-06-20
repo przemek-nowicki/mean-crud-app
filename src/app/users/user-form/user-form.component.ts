@@ -17,12 +17,7 @@ export class UserFormComponent implements OnInit {
   isEdit:boolean = false;
   isMessageVisible:boolean = false;
   userId:string = '';
-  firstName:string='';
-  lastName:string='';
-  email:string='';
-  occupation:string='';
-  dateOfBirth:Date;
-  photo:string = '';
+  
   // TODO: move this to service class
   public uploader:FileUploader = new FileUploader({url: `${this.apiUrl}/users/upload`, itemAlias: 'photo'});
 
