@@ -39,4 +39,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ### User form:
 * features: add, edit, upload image, select date via datepicker, validation (client & server side)
-![picture alt](http://crud.miwu.pl/crud-form.png "User form")
+![picture alt](http://crud.miwu.pl/crud-user-form.png "User form")
