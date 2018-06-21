@@ -3,8 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../user.service';
 import {User} from "../user";
-import {FileUploader} from "ng2-file-upload";
 import {environment} from "../../../environments/environment";
+import {UserUploader} from "../user-uploader";
 
 @Component({
   selector: 'app-user-form',
@@ -17,16 +17,12 @@ export class UserFormComponent implements OnInit {
   isEdit:boolean = false;
   isMessageVisible:boolean = false;
   userId:string = '';
-  
-  // TODO: move this to service class
-  public uploader:FileUploader = new FileUploader({url: `${this.apiUrl}/users/upload`, itemAlias: 'photo'});
 
-  constructor(private router: Router, private route: ActivatedRoute, private userService:UserService, private formBuilder:FormBuilder) { }
+  constructor(private router: Router, private route: ActivatedRoute, private userService:UserService, private formBuilder:FormBuilder, public uploader:UserUploader) { }
 
   ngOnInit() {
-    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
-    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-      this.userForm.patchValue({photo: JSON.parse(response).filePath});
+    this.uploader.onComplete = (uploadedPhotoPath:String) => {
+      this.userForm.patchValue({photo: uploadedPhotoPath});
     };
     this.getUser(this.route.snapshot.params['id']);
     this.userForm = this.formBuilder.group({

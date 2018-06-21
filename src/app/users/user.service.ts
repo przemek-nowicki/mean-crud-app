@@ -35,8 +35,4 @@ export class UserService {
   removeUser(userId:string): Observable<{}> {
     return this.http.delete(`${this.apiUrl}/users/${userId}`);
   }
-
-  uploadUserPicture(formData:FormData) {
-
-  }
 }

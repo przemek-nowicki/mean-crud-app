@@ -9,6 +9,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FileSelectDirective } from 'ng2-file-upload';
+import {UserUploader} from "./user-uploader";
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import { FileSelectDirective } from 'ng2-file-upload';
     NgxDatatableModule
   ],
   declarations: [UserListComponent, UserFormComponent, FileSelectDirective],
-  providers: [UserService]
+  providers: [UserService, UserUploader]
 })
 export class UsersModule {}
