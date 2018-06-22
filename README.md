@@ -1,6 +1,7 @@
 # MEAN crud app with Angular 6
 
 This is a simple CRUD app for user management based on MEAN stack with Angular6 on the board. 
+Demo: https://cryptic-earth-78314.herokuapp.com/users
 
 ## Installation
 
