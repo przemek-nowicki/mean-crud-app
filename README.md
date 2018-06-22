@@ -24,7 +24,7 @@ The server will automatically reload if you change any of the files from api dir
 In order to check if api response type `curl -i localhost:3000/api/users` command in terminal/
 
 ## Build and run app
-Run `npm start`. It will build frontend and run server on `http://localhost:3000` 
+Run `npm start` to build the frotned and run backend server. Navigate to `http://localhost:3000`. 
 
 ## Build
 
