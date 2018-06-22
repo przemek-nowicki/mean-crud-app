@@ -1,0 +1,2 @@
+# Ignore everything in this directory. It's a workaround just to have an upload directory in the repo
+!.gitignore
