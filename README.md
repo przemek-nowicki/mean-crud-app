@@ -19,12 +19,12 @@ The app will automatically reload if you change any of the source files.
 
 ## Development server - backend 
 
-Run `npm run server` for a dev backend server. 
+Run `npm run server` to run server in dev mode run by nodemon. 
 The server will automatically reload if you change any of the files from api directory.  
 In order to check if api response type `curl -i localhost:3000/api/users` command in terminal/
 
 ## Build and run app
-Run `npm start` to build the frotned and run backend server. Navigate to `http://localhost:3000`. 
+Run `npm start` to build frotned part of the project and run serve by node. Navigate to `http://localhost:3000`. 
 
 ## Build
 
