@@ -1,10 +1,11 @@
 {
   "name": "mean-crud-app",
   "author": "Przemek Nowicki",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
+    "start": "ng build && node ./bin/www",
+    "client": "ng serve --proxy-config proxy.conf.json",
     "server": "nodemon ./bin/www",
     "build": "ng build",
     "test": "ng test",

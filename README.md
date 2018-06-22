@@ -14,7 +14,7 @@ To run project install and setup the following:
 
 ## Development server - frontend
 
-Run `npm start` for a dev frontend server. Navigate to `http://localhost:4200/`. 
+Run `npm run client` for a dev frontend server. Navigate to `http://localhost:4200/`. 
 The app will automatically reload if you change any of the source files.
 
 ## Development server - backend 
@@ -22,6 +22,9 @@ The app will automatically reload if you change any of the source files.
 Run `npm run server` for a dev backend server. 
 The server will automatically reload if you change any of the files from api directory.  
 In order to check if api response type `curl -i localhost:3000/api/users` command in terminal/
+
+## Build and run app
+Run `npm start`. It will build frontend and run server on `http://localhost:3000` 
 
 ## Build
 

@@ -6,6 +6,7 @@ const api = require('./api/routes/api.route');
 const app = express();
 const cors = require('cors');
 const bluebird = require('bluebird');
+const path = require('path');
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mean-crud-app';
 
 app.use(logger('dev'));
@@ -13,14 +14,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/api', api);
 app.use('/uploads',express.static('uploads'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
+
 
 app.use(function(req, res, next) {
   const error = createError(404);
   res.status(error.status).json({status: error.status, message: error.message});
 });
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
