@@ -22,7 +22,7 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('app');
   }));
-  it('should render Menu in a div menu tag', async(() => {
+  it('should render Menu inisde a div menu tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
